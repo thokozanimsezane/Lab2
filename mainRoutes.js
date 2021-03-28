@@ -4,7 +4,7 @@ const path = require('path')
 const express = require('express')
 const mainRouter = express.Router()
 mainRouter.get('/', function (req, res) {
-  res.send('This is my basic website, pretty cool huh Love Koko')
+  res.send('This is my basic website, pretty cool huh')
 })
 
 mainRouter.get('/about', function (req, res) {
