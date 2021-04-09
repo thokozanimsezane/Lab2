@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Class List: Create</title>
-    <meta charset="utf-8" />
-  </head>
-  <body>
+<head>
+     <title>Class List: Create</title>
+     <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Create A Student</h1>
     <form action="/class/api/create" method="post">
     <div>
-        <label for="studentName">Enter The Student's Name:</label>
-        <input type="text" id="student" name="student">
+        <label for="studentName">Enter The Student Name:</label>
+        <input type="text" id="student1" name="student">
+    </div>
+    <div>
+        <label for="studentNumber">Enter The Student Number:</label>
+        <input type="text" id="studentNum" name="studentNumber">
+    </div>
+    <div><p>Enter a minimum of two courses that the student is enrolled for</p></div>
+    <div>
+        <label for="course1">course 1 code:</label>
+        <input type="text" id="course11" name="courseOne">
+    </div>
+    <div>
+        <label for="course2">course 2 code:</label>
+        <input type="text" id="course22" name="courseTwo">
     </div>
     <div class="button">
-      <button type="submit">Add</button>
+        <button type="submit">Add</button>
     </div>
-    </form>
-  </body>
+</form>
+</body>
 </html>
+

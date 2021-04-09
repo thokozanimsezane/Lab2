@@ -3,12 +3,13 @@
 const path = require('path')
 const express = require('express')
 const router = express.Router()
+
 // our class list
 const classList = require('./classList.js')
 
-// RESTFUL api
+// RESTful api
 router.get('/api/list', function (req, res) {
-  res.json(classList) // respond with JSON
+  res.json(classList.getList()) // Respond with JSON
 })
 
 router.get('/api/get/:id', function (req, res) {
@@ -24,7 +25,11 @@ router.get('/create', function (req, res) {
   res.sendFile(path.join(__dirname, 'views', 'class', 'create.html'))
 })
 
-router.post('/edit', function (req, res) {
+router.get('/delete', function (req, res) {
+  res.sendFile(path.join(__dirname, 'views', 'class', 'delete.html'))
+})
+
+router.get('/edit', function (req, res) {
   res.sendFile(path.join(__dirname, 'views', 'class', 'edit.html'))
 })
 
