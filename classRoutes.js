@@ -3,7 +3,8 @@
 const path = require('path')
 const express = require('express')
 const router = express.Router()
-const classList = []
+// our class list
+const classList = require('./classList.js')
 
 // RESTFUL api
 router.get('/api/list', function (req, res) {
@@ -28,17 +29,32 @@ router.post('/edit', function (req, res) {
 })
 
 router.post('/api/create', function (req, res) {
-  console.log('creating a student entry', req.body.student)
-  classList.push(req.body.student)
+  console.log('Creating the following student:', req.body.student)
+  const studentObject = {
+    name: req.body.student,
+    studentNumber: req.body.studentNumber,
+    courses: [req.body.courseOne, req.body.courseTwo]
+  }
+  classList.add(studentObject)
   res.redirect(req.baseUrl + '/api/list')
 })
 
 router.post('/api/delete', function (req, res) {
   console.log('deleting a student entry')
+  classList.delete(req.body.indexStudentToDelete) // deleting a student
+  // classList.deleteCourse(req.body.indexStud1, req.body.indexCourseToDelete)
+  // classList.deleteCourse(req.body.indexStud2, req.body.indexCourseToDelete)
+  res.redirect(req.baseUrl + '/api/list')
 })
 
 router.post('/api/edit', function (req, res) {
-  console.log('editing a student entry')
+  console.log('editing a student', req.body.student)
+  const editedStudent = {
+    name: req.body.student,
+    studentNumber: req.body.studentNumber,
+    courses: [req.body.courseOne, req.body.courseTwo]
+  }
+  classList.edit(editedStudent, req.body.index)
+  res.redirect(req.baseUrl + '/api/list')
 })
-
 module.exports = router

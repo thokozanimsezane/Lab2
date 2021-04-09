@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Class List: Modifying Students</title>
+     <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Delete A Student</h1>
+    <form action="/class/api/delete" method="post">
+    <div>
+        <label for="studentName">Enter the index of student to delete:</label>
+        <input type="text" id="student1" name="indexStudentToDelete">
+    </div>
+    <div>
+        <label for="deleteCourse">Enter the index of course to delete (there are two courses):</label>
+        <input type="text" id="delete" name="indexCourseToDelete">
+    </div>
+    <div>
+        <label for="studentName">Enter the indexes of student you wanna delete this course from:</label>
+        <input type="text" id="index1" name="indexStud1">
+        <input type="text" id="index2" name="indexStud2">
+    </div>
+    <div class="button">
+        <button type="submit">Add</button>
+    </div>
+</form>
+</body>
+</html>

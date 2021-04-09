@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Class List: edit</title>
+     <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Edit A Student</h1>
+    <form action="/class/api/edit" method="post">
+    <div>
+        <label for="studentIndex">Enter Index of student you want to edit:</label>
+        <input type="text" id="student1" name="index">
+    </div>
+    <div>
+        <label for="studentName">Enter New Student Name:</label>
+        <input type="text" id="student1" name="student">
+    </div>
+    <div>
+        <label for="studentNumber">Enter New Student Number:</label>
+        <input type="text" id="studentNum" name="studentNumber">
+    </div>
+    <div><p>Enter a minimum of two NEW courses that the student is enrolled for</p></div>
+    <div>
+        <label for="course1">new course 1 code:</label>
+        <input type="text" id="course11" name="courseOne">
+    </div>
+    <div>
+        <label for="course2">new course 2 code:</label>
+        <input type="text" id="course22" name="courseTwo">
+    </div>
+    <div class="button">
+        <button type="submit">Add</button>
+    </div>
+</form>
+</body>
+</html>
+
