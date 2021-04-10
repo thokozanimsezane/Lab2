@@ -12,9 +12,9 @@ describe('Successfully adding a student', () => {
       courses: ['ELEN4010', 'ELEN4016']
     }
     classList.add(studentObject)
-    expect(classList.getList().length).toBe(1)
+    expect(classList.getList().length).toBe(3)
     classList.add(studentObject)
-    expect(classList.getList().length).toBe(2)
+    expect(classList.getList().length).toBe(4)
   })
 })
 
@@ -22,12 +22,7 @@ describe('Sucesssfully deleting a student', () => {
   test('deleting a student', () => {
     classList.delete(1) // there are two students so far which were added from the previous test
     // so here, I am deleting the student at index 1
-    expect(classList.getList().length).toBe(1)
-    classList.delete(0)
-  })
-
-  test('checking that the list is now empty', () => {
-    expect(classList.isEmpty()).toBe(true)
+    expect(classList.getList().length).toBe(3)
   })
 })
 
@@ -39,25 +34,11 @@ describe('Getting a paticular student from the list', () => {
       courses: ['ELEN1004', 'ELEN1016']
     }
     classList.add(student1)
-    const obtainedStudent1 = classList.get(0)
+    const obtainedStudent1 = classList.get(3)
     expect(obtainedStudent1.name).toBe(student1.name)
     expect(obtainedStudent1.studentNumber).toBe(student1.studentNumber)
     expect(obtainedStudent1.courses[0]).toBe(student1.courses[0])
     expect(obtainedStudent1.courses[1]).toBe(student1.courses[1])
-  })
-
-  test('getting student 2', () => {
-    const student2 = {
-      name: 'Senamile',
-      studentNumber: 1743523,
-      courses: ['ELEN2000', 'ELEN2004']
-    }
-    classList.add(student2)
-    const obtainedStudent2 = classList.get(1)
-    expect(obtainedStudent2.name).toBe(student2.name)
-    expect(obtainedStudent2.studentNumber).toBe(student2.studentNumber)
-    expect(obtainedStudent2.courses[0]).toBe(student2.courses[0])
-    expect(obtainedStudent2.courses[1]).toBe(student2.courses[1])
   })
 })
 
