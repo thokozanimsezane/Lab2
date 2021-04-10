@@ -1,7 +1,7 @@
 'use strict'
 
 // Private
-const list = []
+const list = ['tk', 'tkz']
 // Public
 module.exports = {
   add: function (student) {
