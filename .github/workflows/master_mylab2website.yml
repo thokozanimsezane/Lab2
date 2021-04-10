@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'mylab2website'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_400528c1f30d490393b6b5c542a3decd }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6bae6ed389704c0f8bd6f4c1c9995b09 }}
         package: .
