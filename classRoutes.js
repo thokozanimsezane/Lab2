@@ -3,13 +3,36 @@
 const path = require('path')
 const express = require('express')
 const router = express.Router()
+const db = require('./db')
 
 // our class list
 const classList = require('./classList.js')
 
-// RESTful api
+// // RESTful api
+// router.get('/api/list', function (req, res) {
+//   res.json(classList.getList()) // Respond with JSON
+// })
+
 router.get('/api/list', function (req, res) {
-  res.json(classList.getList()) // Respond with JSON
+  // make a query to the database
+  db.pools
+  // Run query
+    .then((pool) => {
+      return pool.request()
+      // This is only a test query, chnage it to whatever you need
+
+        .query('SELECT * FROM Users')
+    })
+    // send back the result
+    .then(result => {
+      res.send(result)
+    })
+    // If there's an error, return that with some description
+    .catch(err => {
+      res.send({
+        Error: err
+      })
+    })
 })
 
 router.get('/api/get/:id', function (req, res) {
@@ -40,8 +63,27 @@ router.post('/api/create', function (req, res) {
     studentNumber: req.body.studentNumber,
     courses: [req.body.courseOne, req.body.courseTwo]
   }
-  classList.add(studentObject)
-  res.redirect(req.baseUrl + '/api/list')
+  // make a query to the database
+  db.pools
+  // Run query
+    .then((pool) => {
+      return pool.request()
+      // This is only a test query, chnage it to whatever you need
+
+        .query(`INSERT INTO Users(firstName) VALUES ('${studentObject.name}')`)
+    })
+    // send back the result
+    .then(result => {
+      res.send(result)
+    })
+    // If there's an error, return that with some description
+    .catch(err => {
+      res.send({
+        Error: err
+      })
+    })
+  // classList.add(req.body.student)
+  // res.redirect(req.baseUrl + '/api/list')
 })
 
 router.post('/api/delete', function (req, res) {
